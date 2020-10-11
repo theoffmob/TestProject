@@ -10,12 +10,10 @@ function getPrize(){
         type:'POST',
         url:'WinPrizeController',
         success:function(data){
-            console.log(data);
             var str = 'congratulations you won '+data.money+' '+data.typeid;
             $('#msg').html(str);
             if (data.typeid == 1) {
                 $('#converting').css('display', 'block');
-
             }
             else {
                 $('#converting').css('display', 'none');
@@ -37,24 +35,20 @@ function ConvertPrize(money){
             dataType: 'json',
             data: (money),
             success: function(data){
-                console.log(data);
                 if(data) {
                     var str = 'you converted your money won for '+data.money+' points';
                     $('#conv').html(str).css('display', 'block');
                     window.wincash = data;
                     $('#depositmess').css('display', 'block');
                     $('#write').css('display', 'block');
-
-                /*    alert(data.message);*/
                 } else {
-                /*    alert(data);*/
+                    alert(data);
                 }
             },
             error: function(){
-              /*  alert(data.message);*/
+                alert(data.message);
             }
         });
-
 }
 
 function WritePrize(money){
@@ -73,14 +67,10 @@ function WritePrize(money){
                 console.log('ok');
                 console.log(data);
                 if(data) {
-                    console.log(data);
-                    /*    alert(data.message);*/
+                    console.log(data.message);
                 } else {
-                    /*    alert(data);*/
+                    alert(data.message);
                 }
-            },
-            error: function(){
-                /*  alert(data.message);*/
             }
         });
 

@@ -30,7 +30,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('insert','AddPrizes@insertform');
-/*Route::post('create','AddPrizes@insert');*/
 
 Route::get('convert','ConvertMoneyToPointsController@convert')->name('convert');
 

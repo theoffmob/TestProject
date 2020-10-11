@@ -15,6 +15,11 @@ use Illuminate\Http\Request;
  */
 class WriteWinningController extends Controller
 {
+    /**
+     * @param Request $request
+     *
+     * @return false|string
+     */
     protected function createwin(Request $request)
     {
         try {

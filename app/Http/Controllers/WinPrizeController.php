@@ -11,6 +11,9 @@ use App\Model\Prize;
  */
 class WinPrizeController extends Controller
 {
+    /**
+     * @return mixed
+     */
     public function initprizes()
     {
         $random = Prize::inRandomOrder()->firstOrFail();
