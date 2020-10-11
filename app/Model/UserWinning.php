@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Model;
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Class UserWinning
@@ -27,19 +29,18 @@ class UserWinning extends Model
     protected $table = 'user_winnings';
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return HasOne
      */
     public function User()
     {
-        //return $this->belongsTo('App\Model\User', 'user_email', ‘user_email’);
-        return  $this->hasOne('App\Model\User', 'id', 'user_id');
-       //return $email = $this['email'];
+        return $this->hasOne('App\Model\User', 'id', 'user_id');
     }
 
     /**
      * @param $status
      */
-    protected function setStatus($status){
+    protected function setStatus($status)
+    {
         $this->payoutstatus = $status;
     }
 }

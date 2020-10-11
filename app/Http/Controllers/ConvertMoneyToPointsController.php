@@ -7,8 +7,6 @@ use App\Enums\PrizeTypes;
 use Exception;
 use Illuminate\Http\Request;
 
-
-
 /**
  * Class ConvertMoneyToPointsController
  *
@@ -18,18 +16,18 @@ class ConvertMoneyToPointsController extends Controller
 {
     /**
      * @param Request $request
+     *
+     * @return array|false|string
      */
     public function convert(Request $request)
     {
-        try
-        {
+        try {
             $conveted =  [
                 'type' => PrizeTypes::TYPE_BONUS,
                 'money' => round(($request['money'] * Сoefficient::COEFF), 0)
             ];
             return $conveted;
-        }
-        catch (Exception $ex) {
+        } catch (Exception $ex) {
             return json_encode(
                 [
                     'result' => false,

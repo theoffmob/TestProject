@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ConvertMoneyToPointsController;
 use PHPUnit\Framework\TestCase;
 
-
 /**
  * Class ConverterTest
  *
@@ -20,13 +19,22 @@ class ConverterTest extends TestCase
      */
     public function testConverter()
     {
-        $checksum = new ConvertMoneyToPointsController;
+        $checksum = new ConvertMoneyToPointsController();
         $result = $checksum
-            ->convert(new Request([
-                                     'type' => PrizeTypes::TYPE_MONEY,
-                                     'money' => 456
-                                  ]));
-        $checkequal = (['type' => PrizeTypes::TYPE_BONUS, 'money' => '547']);
-        $this->assertEquals($result, $checkequal);
+            ->convert(
+                new Request(
+                    [
+                        'type' => PrizeTypes::TYPE_MONEY ,
+                        'money' => 456
+                    ]
+                )
+            );
+
+        $checkEqual = [
+            'type' => PrizeTypes::TYPE_BONUS,
+            'money' => '547'
+        ];
+
+        $this->assertEquals($result, $checkEqual);
     }
 }

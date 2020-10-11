@@ -38,4 +38,5 @@ Route::get('createwin','WriteWinningController@createwin')->name('createwin');
 Route::post('WinPrizeController','WinPrizeController@initprizes')->name('WinPrize');
 
 Route::post('/payment', ['as' => 'payment', 'uses' => 'PaymentController@payWithpaypal']);
+
 Route::get('/payment/status',['as' => 'status', 'uses' => 'PaymentController@getPaymentStatus']);
