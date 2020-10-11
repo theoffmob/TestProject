@@ -1,0 +1,18 @@
+{
+    "debugbar.openhandler": "_debugbar\/open",
+    "debugbar.clockwork": "_debugbar\/clockwork\/{id}",
+    "debugbar.telescope": "_debugbar\/telescope\/{id}",
+    "debugbar.assets.css": "_debugbar\/assets\/stylesheets",
+    "debugbar.assets.js": "_debugbar\/assets\/javascript",
+    "debugbar.cache.delete": "_debugbar\/cache\/{key}\/{tags?}",
+    "": "create",
+    "login": "login",
+    "logout": "logout",
+    "register": "register",
+    "password.request": "password\/reset",
+    "password.email": "password\/email",
+    "password.reset": "password\/reset\/{token}",
+    "password.update": "password\/reset",
+    "password.confirm": "password\/confirm",
+    "WinPrize": "WinPrizeController"
+}
