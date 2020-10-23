@@ -7,6 +7,7 @@ use App\Model\UserWinning;
 use Auth;
 use http\Exception;
 use Illuminate\Http\Request;
+use App\Enums;
 
 /**
  * Class WriteWinning
@@ -29,6 +30,13 @@ class WriteWinningController extends Controller
                                     'moneysum' => $request['money'],
                                     'payoutstatus' => PayoutStatus::PENDING,
                                 ]);
+            switch ($request['typeid'])
+            {
+                case Enums\PrizeTypes::TYPE_MONEY:
+                case Enums\PrizeTypes::TYPE_ITEM:
+                    DeleteWinController::DeleteWin($request['id']);
+                    break;
+            }
             return json_encode(
                 [
                     'result' => true,

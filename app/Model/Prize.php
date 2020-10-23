@@ -15,6 +15,7 @@ class Prize extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'typeid',
         'money',
     ];
