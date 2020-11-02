@@ -26,7 +26,7 @@ class WriteWinningController extends Controller
         try {
             UserWinning::create([
                                     'user_id' => Auth::user()->id,
-                                    'typeid' => $request['typeid'],
+                                    'typeid' => $request['type'],
                                     'moneysum' => $request['money'],
                                     'payoutstatus' => PayoutStatus::PENDING,
                                 ]);
