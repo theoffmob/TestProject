@@ -1,4 +1,5 @@
-function getPrize(){
+function getPrize()
+{
 
     $.ajaxSetup({
         headers: {
@@ -9,13 +10,12 @@ function getPrize(){
     $.ajax({
         type:'POST',
         url:'WinPrizeController',
-        success:function(data){
-            var str = 'congratulations you won '+data.money+' '+data.typeid;
+        success:function (data) {
+            var str = 'congratulations you won ' + data.money + ' ' + data.typeid;
             $('#msg').html(str);
             if (data.typeid == 1) {
                 $('#converting').css('display', 'block');
-            }
-            else {
+            } else {
                 $('#converting').css('display', 'none');
             }
             window.wincash = data;
@@ -25,7 +25,8 @@ function getPrize(){
     });
 }
 
-function ConvertPrize(money){
+function ConvertPrize(money)
+{
         $.ajax({
             type: 'GET',
             url: 'convert',
@@ -34,9 +35,10 @@ function ConvertPrize(money){
             },
             dataType: 'json',
             data: (money),
-            success: function(data){
-                if(data) {
-                    var str = 'you converted your money won for '+data.money+' points';
+            success: function (data) {
+                if (data) {
+                    $('#converting').remove();
+                    var str = 'you converted your money won for ' + data.money + ' points';
                     $('#conv').html(str).css('display', 'block');
                     window.wincash = data;
                     $('#depositmess').css('display', 'block');
@@ -45,13 +47,14 @@ function ConvertPrize(money){
                     alert(data);
                 }
             },
-            error: function(){
+            error: function () {
                 alert(data.message);
             }
         });
 }
 
-function WritePrize(money){
+function WritePrize(money)
+{
     console.log(money);
 
         console.log("money");
@@ -63,10 +66,11 @@ function WritePrize(money){
             },
             dataType: 'json',
             data: (money),
-            success: function(data){
+            success: function (data) {
                 console.log('ok');
                 console.log(data);
-                if(data) {
+                if (data) {
+                    $('#write').remove();
                     console.log(data.message);
                 } else {
                     alert(data.message);
